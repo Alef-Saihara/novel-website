@@ -57,28 +57,54 @@
         main {
             padding: 40px 20px;
         }
-        .works-container, .worldlines-container {
+        .works-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .works-container div, .worldlines-container div {
+        .work-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 8px;
             transition: transform 0.3s, background 0.3s;
             cursor: pointer;
+            position: relative;
         }
-        .works-container div:hover, .worldlines-container div:hover {
+        .work-item:hover {
             transform: scale(1.05);
             background: rgba(255, 255, 255, 0.2);
         }
-        footer {
-            background: #252525;
-            padding: 15px;
-            margin-top: 20px;
-            font-size: 14px;
+        .worldlines-container {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #2C2C2C;
+            padding: 10px;
+            border-radius: 8px;
+            width: 200px;
+        }
+        .work-item:hover .worldlines-container {
+            display: block;
+        }
+        .worldline {
+            padding: 5px;
+            cursor: pointer;
+        }
+        .worldline:hover {
+            background: #C0A060;
+        }
+        .worldline-list {
+            display: none;
+            background: #3C3C3C;
+            padding: 5px;
+            border-radius: 5px;
+            margin-top: 5px;
+        }
+        .worldline:hover .worldline-list {
+            display: block;
         }
     </style>
 </head>
@@ -100,14 +126,22 @@
         <section id="works">
             <h2>作品一覧</h2>
             <div class="works-container">
-                <!-- JSONデータから作品を追加 -->
-            </div>
-        </section>
-        
-        <section id="worldlines">
-            <h2>世界線</h2>
-            <div class="worldlines-container">
-                <!-- JSONデータからシリーズを追加 -->
+                <div class="work-item">作品A
+                    <div class="worldlines-container">
+                        <div class="worldline" onclick="location.href='worldline1.html'">世界線1
+                            <div class="worldline-list">
+                                <p>作品A</p>
+                                <p>作品B</p>
+                            </div>
+                        </div>
+                        <div class="worldline" onclick="location.href='worldline2.html'">世界線2
+                            <div class="worldline-list">
+                                <p>作品C</p>
+                                <p>作品D</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
     </main>

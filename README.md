@@ -63,7 +63,7 @@
             justify-content: center;
             gap: 20px;
         }
-        .work-item {
+        .work-item, .worldline-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 8px;
@@ -71,11 +71,11 @@
             cursor: pointer;
             position: relative;
         }
-        .work-item:hover {
+        .work-item:hover, .worldline-item:hover {
             transform: scale(1.05);
             background: rgba(255, 255, 255, 0.2);
         }
-        .worldlines-container {
+        .worldline-list {
             display: none;
             position: absolute;
             top: 100%;
@@ -86,25 +86,15 @@
             border-radius: 8px;
             width: 200px;
         }
-        .work-item:hover .worldlines-container {
+        .worldline-item:hover .worldline-list {
             display: block;
         }
-        .worldline {
+        .worldline-list p {
             padding: 5px;
             cursor: pointer;
         }
-        .worldline:hover {
+        .worldline-list p:hover {
             background: #C0A060;
-        }
-        .worldline-list {
-            display: none;
-            background: #3C3C3C;
-            padding: 5px;
-            border-radius: 5px;
-            margin-top: 5px;
-        }
-        .worldline:hover .worldline-list {
-            display: block;
         }
     </style>
 </head>
@@ -126,20 +116,22 @@
         <section id="works">
             <h2>作品一覧</h2>
             <div class="works-container">
-                <div class="work-item">作品A
-                    <div class="worldlines-container">
-                        <div class="worldline" onclick="location.href='worldline1.html'">世界線1
-                            <div class="worldline-list">
-                                <p>作品A</p>
-                                <p>作品B</p>
-                            </div>
-                        </div>
-                        <div class="worldline" onclick="location.href='worldline2.html'">世界線2
-                            <div class="worldline-list">
-                                <p>作品C</p>
-                                <p>作品D</p>
-                            </div>
-                        </div>
+                <div class="work-item" onclick="location.href='workA.html'">作品A</div>
+                <div class="work-item" onclick="location.href='workB.html'">作品B</div>
+                <div class="work-item" onclick="location.href='workC.html'">作品C</div>
+                <div class="work-item" onclick="location.href='workD.html'">作品D</div>
+                
+                <div class="worldline-item" onclick="location.href='worldline1.html'">世界線1
+                    <div class="worldline-list">
+                        <p onclick="location.href='workA.html'">作品A</p>
+                        <p onclick="location.href='workB.html'">作品B</p>
+                    </div>
+                </div>
+                
+                <div class="worldline-item" onclick="location.href='worldline2.html'">世界線2
+                    <div class="worldline-list">
+                        <p onclick="location.href='workC.html'">作品C</p>
+                        <p onclick="location.href='workD.html'">作品D</p>
                     </div>
                 </div>
             </div>

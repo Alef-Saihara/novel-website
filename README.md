@@ -120,14 +120,12 @@
                 <div class="work-item" onclick="location.href='workB.html'">作品B</div>
                 <div class="work-item" onclick="location.href='workC.html'">作品C</div>
                 <div class="work-item" onclick="location.href='workD.html'">作品D</div>
-                
                 <div class="worldline-item" onclick="location.href='worldline1.html'">世界線1
                     <div class="worldline-list">
                         <p onclick="location.href='workA.html'">作品A</p>
                         <p onclick="location.href='workB.html'">作品B</p>
                     </div>
                 </div>
-                
                 <div class="worldline-item" onclick="location.href='worldline2.html'">世界線2
                     <div class="worldline-list">
                         <p onclick="location.href='workC.html'">作品C</p>

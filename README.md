@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>宰原アレフ - 作品一覧</title>
+    <title>NIT - ホーム</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Noto+Sans+JP:wght@400;700&display=swap" rel="stylesheet">
     <style>
@@ -23,21 +23,19 @@
             background: #252525;
             box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.3);
         }
-        .logo {
-            font-family: 'Cinzel', serif;
-            font-size: 40px;
-            color: #C0A060;
-        }
         .site-title {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
+            color: #C0A060;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
         nav ul {
             list-style: none;
             padding: 0;
             margin: 0;
             display: flex;
-            gap: 15px;
+            gap: 20px;
         }
         nav ul li {
             display: inline;
@@ -47,7 +45,7 @@
             color: #E0E0E0;
             font-weight: bold;
             transition: color 0.3s, background 0.3s;
-            padding: 8px 12px;
+            padding: 10px 15px;
             border-radius: 5px;
         }
         nav ul li a:hover {
@@ -57,87 +55,89 @@
         main {
             padding: 40px 20px;
         }
-        .works-container {
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .authors-container {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
             gap: 20px;
         }
-        .work-item, .worldline-item {
+        .author-item {
             background: rgba(255, 255, 255, 0.1);
             padding: 20px;
             border-radius: 8px;
             transition: transform 0.3s, background 0.3s;
             cursor: pointer;
             position: relative;
+            width: 200px;
+            text-align: center;
         }
-        .work-item:hover, .worldline-item:hover {
+        .author-item:hover {
             transform: scale(1.05);
             background: rgba(255, 255, 255, 0.2);
-        }
-        .worldline-list {
-            display: none;
-            position: absolute;
-            top: 100%;
-            left: 50%;
-            transform: translateX(-50%);
-            background: #2C2C2C;
-            padding: 10px;
-            border-radius: 8px;
-            width: 200px;
-        }
-        .worldline-item:hover .worldline-list {
-            display: block;
-        }
-        .worldline-list p {
-            padding: 5px;
-            cursor: pointer;
-        }
-        .worldline-list p:hover {
-            background: #C0A060;
         }
     </style>
 </head>
 <body>
     <header>
-        <div class="logo">ℵ</div>
-        <h1 class="site-title">宰原アレフ</h1>
+        <h1 class="site-title">NIT</h1>
         <nav>
             <ul>
-                <li><a href="#">ホーム</a></li>
-                <li><a href="#works">作品一覧</a></li>
-                <li><a href="#worldlines">世界線</a></li>
-                <li><a href="#profile">プロフィール</a></li>
+                <li><a href="#home">ホーム</a></li>
+                <li><a href="#authors">所属小説家一覧</a></li>
+                <li><a href="edit.html">編集(作者のみ)</a></li>
             </ul>
         </nav>
     </header>
     
     <main>
-        <section id="works">
-            <h2>作品一覧</h2>
-            <div class="works-container">
-                <div class="work-item" onclick="location.href='workA.html'">作品A</div>
-                <div class="work-item" onclick="location.href='workB.html'">作品B</div>
-                <div class="work-item" onclick="location.href='workC.html'">作品C</div>
-                <div class="work-item" onclick="location.href='workD.html'">作品D</div>
-                <div class="worldline-item" onclick="location.href='worldline1.html'">世界線1
-                    <div class="worldline-list">
-                        <p onclick="location.href='workA.html'">作品A</p>
-                        <p onclick="location.href='workB.html'">作品B</p>
-                    </div>
-                </div>
-                <div class="worldline-item" onclick="location.href='worldline2.html'">世界線2
-                    <div class="worldline-list">
-                        <p onclick="location.href='workC.html'">作品C</p>
-                        <p onclick="location.href='workD.html'">作品D</p>
-                    </div>
+        <section id="home">
+            <div class="content-box">
+                <h2>NITについて</h2>
+                <p>NITは2024年3月12日に設立された小説家チームです。Discordを活用し、作家同士の交流だけでなく、読者も参加し、より良い小説を作り上げることを目的としています。</p>
+                <h3>参加条件</h3>
+                <p>まずは読み手・書き手のどちらも参加可能なDiscordサーバー「NITオープンチャット」に参加してください。<br>
+                <a href="https://discord.com/invite/KCBVYQvE">NITオープンチャットに参加する</a></p>
+                <p>「NITに入りたい！」と申し出るか、近況ノートにコメントをいただければ、NITのDiscordの招待リンクを配布します。また、こちらからお誘いする場合もあります。</p>
+                <p>ただし、NIT本体は書き手のみの参加が可能です。また、倫理観のない方の参加はご遠慮いただく場合があります。</p>
+                <h3>活動について</h3>
+                <p>特に強制的な活動はなく、自由にご参加いただけます。現時点では大きな活動予定もございませんので、気軽にご参加ください。</p>
+                <p>ただし、NITの知名度向上のため、名前の最後に「@NIT所属」と付けていただけると助かります。</p>
+            </div>
+        </section>
+        
+        <section id="authors">
+            <div class="content-box">
+                <h2>所属小説家一覧</h2>
+                <div class="authors-container">
+                    <div class="author-item" onclick="location.href='author1.html'">作家1</div>
+                    <div class="author-item" onclick="location.href='author2.html'">作家2</div>
+                    <div class="author-item" onclick="location.href='author3.html'">作家3</div>
+                    <div class="author-item" onclick="location.href='author4.html'">作家4</div>
+                    <div class="author-item" onclick="location.href='author5.html'">作家5</div>
+                    <div class="author-item" onclick="location.href='author6.html'">作家6</div>
+                    <div class="author-item" onclick="location.href='author7.html'">作家7</div>
+                    <div class="author-item" onclick="location.href='author8.html'">作家8</div>
+                    <div class="author-item" onclick="location.href='author9.html'">作家9</div>
+                    <div class="author-item" onclick="location.href='author10.html'">作家10</div>
+                    <div class="author-item" onclick="location.href='author11.html'">作家11</div>
+                    <div class="author-item" onclick="location.href='author12.html'">作家12</div>
+                    <div class="author-item" onclick="location.href='author13.html'">作家13</div>
                 </div>
             </div>
         </section>
     </main>
     
     <footer>
-        <p>&copy; 2025 宰原アレフ All Rights Reserved.</p>
+        <p>&copy; 2025 NIT All Rights Reserved.</p>
     </footer>
 </body>
 </html>

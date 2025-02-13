@@ -17,6 +17,7 @@
             
             calculateAverageReview();
             document.getElementById('status-message').innerText = '保存されました！';
+            updateAuthorNameOnHomePage();
         }
         
         function loadAuthorData() {
@@ -41,6 +42,13 @@
             var reviewCount = parseFloat(document.getElementById('review-count').value) || 0;
             var averageReview = (reviewCount > 0) ? (totalReviews / reviewCount).toFixed(2) : "-";
             document.getElementById('average-review').innerText = averageReview;
+        }
+        
+        function updateAuthorNameOnHomePage() {
+            var authorName = localStorage.getItem('authorName');
+            if (authorName) {
+                localStorage.setItem('homeAuthorName', authorName);
+            }
         }
     </script>
     <style>

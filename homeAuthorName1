@@ -7,24 +7,25 @@
     <link rel="stylesheet" href="styles.css">
     <script>
         function saveAuthorData() {
+            var authorId = 1; // ここを適切な作家のIDに変更 (例: edit_author2.html → authorId = 2)
             var authorName = document.getElementById('author-name').value;
             var totalReviews = document.getElementById('total-reviews').value;
             var reviewCount = document.getElementById('review-count').value;
-            
-            localStorage.setItem('authorName', authorName);
-            localStorage.setItem('totalReviews', totalReviews);
-            localStorage.setItem('reviewCount', reviewCount);
-            
+        
+            localStorage.setItem('homeAuthorName' + authorId, authorName);
+            localStorage.setItem('totalReviews' + authorId, totalReviews);
+            localStorage.setItem('reviewCount' + authorId, reviewCount);
+        
             calculateAverageReview();
             document.getElementById('status-message').innerText = '保存されました！';
-            updateAuthorNameOnHomePage();
         }
-        
+    
         function loadAuthorData() {
-            var savedName = localStorage.getItem('authorName');
-            var savedTotalReviews = localStorage.getItem('totalReviews');
-            var savedReviewCount = localStorage.getItem('reviewCount');
-            
+            var authorId = 1; // ここを適切な作家のIDに変更 (例: edit_author2.html → authorId = 2)
+            var savedName = localStorage.getItem('homeAuthorName' + authorId);
+            var savedTotalReviews = localStorage.getItem('totalReviews' + authorId);
+            var savedReviewCount = localStorage.getItem('reviewCount' + authorId);
+        
             if (savedName) {
                 document.getElementById('author-name').value = savedName;
             }
@@ -32,23 +33,16 @@
                 document.getElementById('total-reviews').value = savedTotalReviews;
             }
             if (savedReviewCount) {
-                document.getElementById('review-count').value = savedReviewCount;
+            document.getElementById('review-count').value = savedReviewCount;
             }
             calculateAverageReview();
         }
-        
+    
         function calculateAverageReview() {
             var totalReviews = parseFloat(document.getElementById('total-reviews').value) || 0;
             var reviewCount = parseFloat(document.getElementById('review-count').value) || 0;
             var averageReview = (reviewCount > 0) ? (totalReviews / reviewCount).toFixed(2) : "-";
             document.getElementById('average-review').innerText = averageReview;
-        }
-        
-        function updateAuthorNameOnHomePage() {
-            var authorName = localStorage.getItem('authorName');
-            if (authorName) {
-                localStorage.setItem('homeAuthorName', authorName);
-            }
         }
     </script>
     <style>

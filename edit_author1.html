@@ -8,15 +8,39 @@
     <script>
         function saveAuthorData() {
             var authorName = document.getElementById('author-name').value;
+            var totalReviews = document.getElementById('total-reviews').value;
+            var reviewCount = document.getElementById('review-count').value;
+            
             localStorage.setItem('authorName', authorName);
+            localStorage.setItem('totalReviews', totalReviews);
+            localStorage.setItem('reviewCount', reviewCount);
+            
+            calculateAverageReview();
             document.getElementById('status-message').innerText = '保存されました！';
         }
         
         function loadAuthorData() {
             var savedName = localStorage.getItem('authorName');
+            var savedTotalReviews = localStorage.getItem('totalReviews');
+            var savedReviewCount = localStorage.getItem('reviewCount');
+            
             if (savedName) {
                 document.getElementById('author-name').value = savedName;
             }
+            if (savedTotalReviews) {
+                document.getElementById('total-reviews').value = savedTotalReviews;
+            }
+            if (savedReviewCount) {
+                document.getElementById('review-count').value = savedReviewCount;
+            }
+            calculateAverageReview();
+        }
+        
+        function calculateAverageReview() {
+            var totalReviews = parseFloat(document.getElementById('total-reviews').value) || 0;
+            var reviewCount = parseFloat(document.getElementById('review-count').value) || 0;
+            var averageReview = (reviewCount > 0) ? (totalReviews / reviewCount).toFixed(2) : "-";
+            document.getElementById('average-review').innerText = averageReview;
         }
     </script>
     <style>
@@ -50,7 +74,7 @@
             font-size: 16px;
             padding: 5px;
         }
-        .save-button {
+        .save-button, .home-button {
             background: #C0A060;
             color: #1A1A1A;
             padding: 10px;
@@ -87,10 +111,6 @@
                 <input type="text" placeholder="作品のキャッチコピー">
             </div>
             <div class="input-box">
-                <label>星の数</label>
-                <input type="number" min="0" max="5" placeholder="評価 (例: 4.5)">
-            </div>
-            <div class="input-box">
                 <label>あらすじ紹介</label>
                 <textarea rows="4" placeholder="あらすじを入力"></textarea>
             </div>
@@ -100,6 +120,18 @@
             </div>
             
             <h3>作品データ</h3>
+            <div class="input-box">
+                <label>総合レビュー数</label>
+                <input type="number" id="total-reviews" placeholder="総合レビュー数" oninput="calculateAverageReview()">
+            </div>
+            <div class="input-box">
+                <label>レビュー人数</label>
+                <input type="number" id="review-count" placeholder="レビュー人数" oninput="calculateAverageReview()">
+            </div>
+            <div class="input-box">
+                <label>平均レビュー</label>
+                <p id="average-review">-</p>
+            </div>
             <div class="input-box">
                 <label>最高順位</label>
                 <input type="text" placeholder="最高順位">
@@ -118,6 +150,7 @@
             </div>
             
             <button class="save-button" onclick="saveAuthorData()">保存</button>
+            <button class="home-button" onclick="window.location.href='index.html'">ホームに戻る</button>
             <p id="status-message"></p>
         </section>
     </main>

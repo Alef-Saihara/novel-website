@@ -124,13 +124,6 @@
                     <div class="author-item" onclick="location.href='author4.html'">作家4</div>
                     <div class="author-item" onclick="location.href='author5.html'">作家5</div>
                     <div class="author-item" onclick="location.href='author6.html'">作家6</div>
-                    <div class="author-item" onclick="location.href='author7.html'">作家7</div>
-                    <div class="author-item" onclick="location.href='author8.html'">作家8</div>
-                    <div class="author-item" onclick="location.href='author9.html'">作家9</div>
-                    <div class="author-item" onclick="location.href='author10.html'">作家10</div>
-                    <div class="author-item" onclick="location.href='author11.html'">作家11</div>
-                    <div class="author-item" onclick="location.href='author12.html'">作家12</div>
-                    <div class="author-item" onclick="location.href='author13.html'">作家13</div>
                 </div>
             </div>
         </section>

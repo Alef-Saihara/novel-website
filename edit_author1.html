@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作家編集ページ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function saveAuthorData() {
+            var authorId = 1; // ここを適切な作家のIDに変更 (例: edit_author2.html → authorId = 2)
+            var authorName = document.getElementById('author-name').value;
+            var totalReviews = document.getElementById('total-reviews').value;
+            var reviewCount = document.getElementById('review-count').value;
+            
+            localStorage.setItem('homeAuthorName' + authorId, authorName);
+            localStorage.setItem('totalReviews' + authorId, totalReviews);
+            localStorage.setItem('reviewCount' + authorId, reviewCount);
+            
+            calculateAverageReview();
+            document.getElementById('status-message').innerText = '保存されました！';
+        }
+        
+        function loadAuthorData() {
+            var authorId = 1; // ここを適切な作家のIDに変更 (例: edit_author2.html → authorId = 2)
+            var savedName = localStorage.getItem('homeAuthorName' + authorId);
+            var savedTotalReviews = localStorage.getItem('totalReviews' + authorId);
+            var savedReviewCount = localStorage.getItem('reviewCount' + authorId);
+            
+            if (savedName) {
+                document.getElementById('author-name').value = savedName;
+            }
+            if (savedTotalReviews) {
+                document.getElementById('total-reviews').value = savedTotalReviews;
+            }
+            if (savedReviewCount) {
+                document.getElementById('review-count').value = savedReviewCount;
+            }
+            calculateAverageReview();
+        }
+        
+        function calculateAverageReview() {
+            var totalReviews = parseFloat(document.getElementById('total-reviews').value) || 0;
+            var reviewCount = parseFloat(document.getElementById('review-count').value) || 0;
+            var averageReview = (reviewCount > 0) ? (totalReviews / reviewCount).toFixed(2) : "-";
+            document.getElementById('average-review').innerText = averageReview;
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Noto Sans JP', sans-serif;
+            text-align: center;
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .input-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        textarea, input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #E0E0E0;
+            font-size: 16px;
+            padding: 5px;
+        }
+        .save-button, .home-button {
+            background: #C0A060;
+            color: #1A1A1A;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="loadAuthorData()">
+    <header>
+        <h1>作家編集ページ</h1>
+    </header>
+    
+    <main>
+        <section class="content-box">
+            <h2>作者名</h2>
+            <div class="input-box"><input type="text" id="author-name" placeholder="作者名を入力"></div>
+            
+            <h2>作者からの一言</h2>
+            <div class="input-box"><textarea rows="2" placeholder="ここに一言を入力"></textarea></div>
+            
+            <h2>自己紹介</h2>
+            <div class="input-box"><textarea rows="4" placeholder="ここに自己紹介を入力"></textarea></div>
+            
+            <h2>作品紹介</h2>
+            <div class="input-box">
+                <label>タイトル</label>
+                <input type="text" placeholder="作品タイトル">
+            </div>
+            <div class="input-box">
+                <label>キャッチコピー</label>
+                <input type="text" placeholder="作品のキャッチコピー">
+            </div>
+            <div class="input-box">
+                <label>あらすじ紹介</label>
+                <textarea rows="4" placeholder="あらすじを入力"></textarea>
+            </div>
+            <div class="input-box">
+                <label>作者からの一言</label>
+                <textarea rows="2" placeholder="作品に対する一言"></textarea>
+            </div>
+            
+            <h3>作品データ</h3>
+            <div class="input-box">
+                <label>総合レビュー数</label>
+                <input type="number" id="total-reviews" placeholder="総合レビュー数" oninput="calculateAverageReview()">
+            </div>
+            <div class="input-box">
+                <label>レビュー人数</label>
+                <input type="number" id="review-count" placeholder="レビュー人数" oninput="calculateAverageReview()">
+            </div>
+            <div class="input-box">
+                <label>平均レビュー</label>
+                <p id="average-review">-</p>
+            </div>
+            <div class="input-box">
+                <label>最高順位</label>
+                <input type="text" placeholder="最高順位">
+            </div>
+            <div class="input-box">
+                <label>総ポイント数</label>
+                <input type="text" placeholder="総ポイント数">
+            </div>
+            <div class="input-box">
+                <label>PV数</label>
+                <input type="text" placeholder="PV数">
+            </div>
+            <div class="input-box">
+                <label>文字数</label>
+                <input type="text" placeholder="文字数">
+            </div>
+            
+            <button class="save-button" onclick="saveAuthorData()">保存</button>
+            <button class="home-button" onclick="window.location.href='index.html'">ホームに戻る</button>
+            <p id="status-message"></p>
+        </section>
+    </main>
+</body>
+</html>

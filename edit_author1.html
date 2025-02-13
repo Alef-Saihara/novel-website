@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>作家編集ページ</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        function saveAuthorData() {
+            var authorName = document.getElementById('author-name').value;
+            localStorage.setItem('authorName', authorName);
+            document.getElementById('status-message').innerText = '保存されました！';
+        }
+        
+        function loadAuthorData() {
+            var savedName = localStorage.getItem('authorName');
+            if (savedName) {
+                document.getElementById('author-name').value = savedName;
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #1A1A1A;
+            color: #E0E0E0;
+            font-family: 'Noto Sans JP', sans-serif;
+            text-align: center;
+        }
+        .content-box {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 40px auto;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+            text-align: left;
+        }
+        .input-box {
+            background: rgba(255, 255, 255, 0.2);
+            padding: 10px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            cursor: pointer;
+        }
+        textarea, input {
+            width: 100%;
+            background: transparent;
+            border: none;
+            color: #E0E0E0;
+            font-size: 16px;
+            padding: 5px;
+        }
+        .save-button {
+            background: #C0A060;
+            color: #1A1A1A;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body onload="loadAuthorData()">
+    <header>
+        <h1>作家編集ページ</h1>
+    </header>
+    
+    <main>
+        <section class="content-box">
+            <h2>作者名</h2>
+            <div class="input-box"><input type="text" id="author-name" placeholder="作者名を入力"></div>
+            
+            <h2>作者からの一言</h2>
+            <div class="input-box"><textarea rows="2" placeholder="ここに一言を入力"></textarea></div>
+            
+            <h2>自己紹介</h2>
+            <div class="input-box"><textarea rows="4" placeholder="ここに自己紹介を入力"></textarea></div>
+            
+            <h2>作品紹介</h2>
+            <div class="input-box">
+                <label>タイトル</label>
+                <input type="text" placeholder="作品タイトル">
+            </div>
+            <div class="input-box">
+                <label>キャッチコピー</label>
+                <input type="text" placeholder="作品のキャッチコピー">
+            </div>
+            <div class="input-box">
+                <label>星の数</label>
+                <input type="number" min="0" max="5" placeholder="評価 (例: 4.5)">
+            </div>
+            <div class="input-box">
+                <label>あらすじ紹介</label>
+                <textarea rows="4" placeholder="あらすじを入力"></textarea>
+            </div>
+            <div class="input-box">
+                <label>作者からの一言</label>
+                <textarea rows="2" placeholder="作品に対する一言"></textarea>
+            </div>
+            
+            <h3>作品データ</h3>
+            <div class="input-box">
+                <label>最高順位</label>
+                <input type="text" placeholder="最高順位">
+            </div>
+            <div class="input-box">
+                <label>総ポイント数</label>
+                <input type="text" placeholder="総ポイント数">
+            </div>
+            <div class="input-box">
+                <label>PV数</label>
+                <input type="text" placeholder="PV数">
+            </div>
+            <div class="input-box">
+                <label>文字数</label>
+                <input type="text" placeholder="文字数">
+            </div>
+            
+            <button class="save-button" onclick="saveAuthorData()">保存</button>
+            <p id="status-message"></p>
+        </section>
+    </main>
+</body>
+</html>

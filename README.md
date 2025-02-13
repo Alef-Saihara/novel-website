@@ -93,7 +93,7 @@
             <ul>
                 <li><a href="#home">ホーム</a></li>
                 <li><a href="#authors">所属小説家一覧</a></li>
-                <li><a href="edit.html">編集(作者のみ)</a></li>
+                <li><a href="edit/edit.html">編集(作者のみ)</a></li>
             </ul>
         </nav>
     </header>
